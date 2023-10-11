@@ -27,6 +27,7 @@ public class Fruitbasket {
 			System.out.println("5.DISPLAY PROPERTIES OF ALL FRSH FRUITS");
 			System.out.println("6.DISPLAY TEST OF ALL STALE FRUITS");
 			System.out.println("7.MARK FRUIT AS STALE");
+			System.out.println("8.MARK SOUR FRUIT AS STALE");
 			System.out.print("ENTER YOUR CHOICE:: ");
 			choice = sc.nextInt();
 			System.out.println("***************************************");
@@ -74,7 +75,7 @@ public class Fruitbasket {
 
 			case 4:
 				{	
-					for(int i =0;i<fruit.length;i++)
+					for(int i =0;i<counter;i++)
 					{
 							System.out.println("NAME FRUIT["+i+"]:: "+fruit[i].getName());
 					}
@@ -83,7 +84,7 @@ public class Fruitbasket {
 				
 			case 5:
 				{	
-					for(int i =0;i<fruit.length;i++)
+					for(int i =0;i<counter;i++)
 					{
 						if(fruit[i].isIsfresh())
 							System.out.println("NAME FRUIT["+i+"]:: "+fruit[i].toString());
@@ -93,7 +94,7 @@ public class Fruitbasket {
 				
 			case 6:
 				{	
-					for(int i =0;i<fruit.length;i++)
+					for(int i =0;i<counter;i++)
 					{
 						if(fruit[i].isIsfresh()== false)
 						System.out.println("TEST OF FRUIT IS:: "+fruit[i].test());
@@ -104,11 +105,11 @@ public class Fruitbasket {
 			case 7:
 			{	
 				int index;
-				System.out.println("ENTER THE INDEX FOR FRUIT:: ");
+				System.out.print("ENTER THE INDEX FOR FRUIT:: ");
 				 sc= new Scanner(System.in);
 				 index= sc.nextInt();
 				 
-				 if(index<fruit.length)
+				 if(index<counter)
 				 {
 					 if(fruit[index].isIsfresh()==false)
 					 {
@@ -124,8 +125,18 @@ public class Fruitbasket {
 					 System.out.println("ENTER VALID INDEX -_- -_- -_- -_-");	  
 			}
 			break;
-
-
+			
+			case 8:
+			{
+				for(int i =0;i<counter;i++)
+				{
+					if(fruit[i].test()=="SOUR")
+						fruit[i].setIsfresh(false);
+				}
+				
+			}
+			break;
+			
 			default:
 				System.out.println("ENTER VALID CHOICE......");
 				break;
